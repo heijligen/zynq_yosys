@@ -1,6 +1,7 @@
-module blink (clk, led);
-	input	clk;
-	output	[3:0]led;
+module blink (
+	input	clk,
+	output	[3:0]led
+);
 
 	reg status;
 

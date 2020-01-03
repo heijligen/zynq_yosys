@@ -4,15 +4,11 @@ vivado_cmd  = vivado -nolog -nojournal -mode batch -source $(1).tcl
 vivado_tcl  = echo -e "read_xdc pynq.xdc\n\
 	     read_edif $(1).edif\n\
 	     link_design -part xc7z020clg400 -top $(1)\n\
-	     opt_design\n\
 	     place_design\n\
 	     route_design\n\
 	     write_bitstream -force $(1).bit" > $(1).tcl
-bootgen_cmd = bootgen -image $(1).bif -o i $(1).bin
-bootgen_bif = echo -e  "iamge:\
-			{\
-				$(1).bit\
-			}" > $(1).bif
+bootgen_cmd = bootgen -arch zynq -image $(1).bif -process_bitstream bin
+bootgen_bif = echo -e  "iamge:{ $(1).bit }" > $(1).bif
 				
 
 
@@ -32,11 +28,11 @@ blink.bit: blink.edif blink.tcl
 blink.bif:
 	@$(call bootgen_bif, blink)
 
-blink.bin: blink.bif blink.bit
+blink.bit.bin: blink.bif blink.bit
 	@$(call bootgen_cmd, blink)
 
 blink-clean:
-	@rm -rf blink.tcl blink.edif blink.bit blink.bif blink.bin
+	@rm -rf blink.tcl blink.edif blink.bit blink.bif blink.bit.bin
 
 
 axi.tcl:
