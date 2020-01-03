@@ -1,11 +1,11 @@
 module blink (
-	input	clk,
 	output	[3:0]led
 );
 
+	wire [3:0] fclk;
 	reg status;
 
-	always @(posedge clk) begin
+	always @(posedge fclk[0]) begin
 		if (status == 0)
 			status <= 1;
 		else
@@ -16,6 +16,10 @@ module blink (
 	assign led[1] = status;
 	assign led[2] = status;
 	assign led[3] = status;
+
+	PS7 the_PS (
+		.FCLKCLK (fclk)
+	);
 endmodule
 
 
