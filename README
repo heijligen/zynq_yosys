@@ -1,4 +1,4 @@
 tools:
 	yosys (git master)
 	vivado (2019.2)
-	bitgen (git master)
+	bootgen (git master)
