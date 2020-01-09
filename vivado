@@ -1,0 +1,6 @@
+#!/bin/env bash
+scp run_vivado.tcl bifur:
+scp pynq.xdc bifur:
+scp -r build bifur:
+ssh bifur vivado $*
+scp -r bifur:build .

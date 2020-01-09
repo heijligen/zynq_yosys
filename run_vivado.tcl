@@ -3,14 +3,10 @@
 # argv 1: location of edif input file
 # argv 2: location of bit output file
 
-if { $argc != 3} {
-	exit
-}
-
-read_xdc $argv 0
-read_edif  $argv 1
+read_xdc [lindex $argv 0]
+read_edif [lindex $argv 1]
 link_design -part xc7z020clg400
 # link_design -part only if PS7 used? -top needed?
 place_design
 route_design
-write_bitstream -force  $argv 2
+write_bitstream -force [lindex $argv 2]
