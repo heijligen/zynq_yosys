@@ -1,4 +1,4 @@
 tools:
-	yosys (git master)
-	vivado (2019.2)
-	bootgen (git master)
+	yosys		(https://github.com/YosysHQ/yosys)
+	vivado		(2019.2)
+	bit2bitbin 	(https://github.com/pgielda/zynq_bootloader)
