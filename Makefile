@@ -1,4 +1,4 @@
-name = blink
+name = axi
 board = pynq
 
 all : build/$(name).bit.bin
