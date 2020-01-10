@@ -2,3 +2,5 @@ tools:
 	yosys		(https://github.com/YosysHQ/yosys)
 	vivado		(2019.2)
 	bit2bitbin 	(https://github.com/pgielda/zynq_bootloader)
+
+axi from https://github.com/SymbiFlow/symbiflow-arch-defs/tree/master/xc7/tests/ps7/axi_lite_reg
