@@ -3,6 +3,8 @@
 # argv 1: location of edif input file
 # argv 2: location of bit output file
 
+# set_property SEVERITY {Warning} [get_drc_checks NSTD-1]
+# set_property SEVERITY {Warning} [get_drc_checks UCIO-1]
 read_xdc [lindex $argv 0]
 read_edif [lindex $argv 1]
 link_design -part xc7z020clg400

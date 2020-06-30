@@ -4,3 +4,4 @@ scp pynq.xdc bifur:
 scp -r build bifur:
 ssh bifur vivado $*
 scp -r bifur:build .
+ssh bifur rm -rf *
